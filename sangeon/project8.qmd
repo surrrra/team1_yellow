@@ -1,0 +1,166 @@
+---
+title: "project8"
+author: "ss"
+format: html
+editor: visual
+---
+- fixed.acidity(결합산) : 와인의 산도를 제어한다.  
+- volatile.acidity(휘발산) : 와인의 향에 연관이 많다. 
+- citric.acid(구연산) : 와인의 신선함을 유지시켜주는 역할을 하며, 산성화에 연관을 미친다. 
+- residual.sugar(잔여 설탕) : 와인의 단맛을 올려준다. 
+- chlorides(염소) : 와인의 짠맛과 신맛을 좌우하는 성분이다. 
+- free.sulfur.dioxide / total.sulfur.dioxide / sulphates(황 화합물) : 특정 박테리아와 효모를 죽여 와인의 
+보관도를 높여준다. 
+- density(밀도) : 바디의 높고 낮음을 표현하는 와인의 바디감을 의미한다. 
+- pH(산성도) : 와인의 신맛의 정도를 나타낸다. 
+- alcohol(알코올) : 와인에 단맛을 주며 바디감에 영향을 준다. 
+- quality(퀄리티) : 결과적으로 다른 변수들을 이용하여 예측하려고 하는 변수로 와인의 퀄리티를 나타낸다.
+
+```{r}
+wine <- read.csv('./winequality-white.csv')
+head(wine)
+str(wine)
+colSums(is.na(wine)) # NA값 확인
+```
+
+```{r}
+table(wine$quality) # 연속형 변수 -> 이산형화
+```
+
+```{r}
+summary(wine$quality)
+```
+## Quality 점수별 수치
+```{r}
+library(ggplot2)
+theme_set(theme_minimal())
+ggplot(wine,aes(quality)) + geom_histogram(stat="count") +
+   xlab("Quality of white wines") + ylab("Number of white wines") + geom_bar(fill="pink")
+# 평균 Quality 6점 thus, 7점부터 Good Wine
+```
+
+```{r}
+# rating 변수 추가 생성
+wine$rating <- ifelse(as.integer(wine$quality) > 6, 1, 0)
+table(wine$rating)
+```
+
+```{r}
+summary(wine)
+```
+
+## 변수별 HIST
+```{r}
+par(mfrow=c(2,3))
+for (x in names(wine[,1:6])){
+	if (is.numeric(wine[,x])){
+		hist(wine[,x],main = x,xlab = x,col="pink", border="white")
+	}
+}
+```
+
+```{r}
+par(mfrow=c(2,3))
+for (x in names(wine[,7:11])){
+	if (is.numeric(wine[,x])){
+		hist(wine[,x],main = x,xlab = x,col="pink", border="white")
+	}
+}
+```
+## 변수들 간 산점도 행렬
+```{r,fig.height=10,}
+pairs(wine[1:11], col=c("orange", "skyblue"), pch=15)
+```
+## 변수 간 상관행렬
+```{r}
+library(corrplot)
+corrplot(cor(wine[,-14]), method = "number")
+```
+## 다중회귀분석
+```{r}
+wine <- wine[,-15]
+model_1 <- lm(quality~., data = wine)
+summary(model_1)
+# 다중회귀분석 가정확인
+par(mfrow=c(2,2))
+plot(model_1)
+step(model_1, direction = 'backward')
+```
+```{r}
+summary(lm(formula = quality ~ volatile.acidity + residual.sugar + free.sulfur.dioxide + 
+    density + pH + sulphates + alcohol + rating, data = wine))
+```
+## 독립변수간 상관관계
+```{r}
+pairs(~volatile.acidity + residual.sugar + free.sulfur.dioxide + 
+    density + pH + sulphates + alcohol + rating, data = wine)
+library(car)
+vif(lm(formula = quality ~ volatile.acidity + residual.sugar + free.sulfur.dioxide + 
+     density + pH + sulphates + alcohol + rating, data = wine))
+
+vif(lm(formula = quality ~ volatile.acidity + residual.sugar + free.sulfur.dioxide + 
+     pH + sulphates + alcohol + rating, data = wine))
+```
+
+```{r}
+model_2 <- lm(formula = quality ~ volatile.acidity + residual.sugar + free.sulfur.dioxide + 
+     pH + sulphates + alcohol + rating, data = wine) 
+mean(round(predict(model_2, newdata = wine[,-14], type = 'response')) == wine$quality)
+```
+## 로지스틱 회귀분석
+
+```{r}
+library(ROCR)
+library(MASS)
+model <- glm(rating ~ .-quality, data = wine, family = binomial(link = 'logit'))
+model
+summary(model)
+```
+```{r}
+step(model, direction = 'backward')
+```
+```{r}
+glm_model <- glm(formula = rating ~ fixed.acidity + volatile.acidity + citric.acid + 
+    residual.sugar + chlorides + free.sulfur.dioxide + density + 
+    pH + sulphates, family = binomial(link = "logit"), data = wine)
+summary(glm_model)
+```
+
+
+```{r}
+wine$pred <- factor(ifelse(
+  glm_model$fitted.values > 0.5, "Yes", "No"))
+tab <- table(wine$pred, wine$rating)
+tab
+```
+
+
+```{r}
+TP <- tab[2,2]
+TN <- tab[1,1]
+FP <- tab[1,2]
+FN <- tab[2,1]
+accuracy <- (TP + TN) / sum(tab)
+accuracy
+```
+
+```{r}
+library(pROC)
+roc(rating ~ glm_model$fitted.values, data = wine, plot = TRUE, main = 'ROC CURVE', auc = T)
+
+```
+
+```{r}
+coef(glm_model)
+exp(coef(glm_model))
+```
+
+
+
+
+
+
+
+
+
+
