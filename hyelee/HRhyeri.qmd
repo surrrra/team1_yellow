@@ -103,12 +103,6 @@ y <- with(df, cbind(satisfaction_level, last_evaluation, average_monthly_hours))
 with(df, aggregate(y, by=list(department), FUN = mean))
 ```
 
-```{r}
-library(nortest)
-ad.test(df$salary)
-str(df)
-```
-
 3.  카이스퀘어 검정
 
 -   카이스퀘어 검정을 통해 연봉(salary)과 퇴직(left)와의 연관성, 검정통계량(소수자리는 모두 버리고 정수만 기록)
