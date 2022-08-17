@@ -1,0 +1,7 @@
+---
+title: "team1_yellow"
+---
+
+1팀 프로젝트입니다.
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
