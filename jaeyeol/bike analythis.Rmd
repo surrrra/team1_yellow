@@ -1,0 +1,156 @@
+---
+title: "bike analytics"
+topic: 일원 분산분석과 다중 회귀분석을 통한 유의변수 확인
+author: "Jae Yeol"
+date: "2022-08-16"
+output: html_document
+---
+
+## 통계분석기법 :일원 분산분석과 다중 회귀분석을 통한 유의변수 확인
+
+
+## 1. 데이터 불러오기
+```{r}
+df<- read.csv('./train.csv', header = T)
+
+library(gplots)
+plotmeans(count~season, data=df)
+boxplot(count~season, data=df)
+
+```
+
+## 2. 데이터 구조 확인
+```{r}
+str(df)
+sum(is.na(df))
+```
+
+
+
+
+
+## 데이트타임 패키지
+
+```{r}
+#install.packages('tidyverse')
+library('tidyverse')
+#install.packages('lubridate')
+library('lubridate')
+```
+
+
+## 상관성 확인
+
+```{r, warning=FALSE, echo=FALSE}
+library(psych)
+cor.df<- cor(df[,-1])
+#pairs.panels(cor.df)
+library(corrgram)
+corrgram(cor.df, order=FALSE, upper.panel=panel.conf, 
+         main='Corrgram of bike demand',text.panel = panel.txt)
+
+```
+
+```{r}
+season.aov<- aov(count~season, data=df)
+season.aov
+summary(season.aov)
+```
+
+
+## 정규성 검정
+
+```{r}
+#qqnorm을 통한 정규성 검정( qqnorm은 정규분포와 비교)
+library(car)
+#qqplot(df$count,df$season)  (qqplot은 변수간 비교)
+qqnorm(df$count)
+```
+
+## 정규성 확인 (엔더슨달링 테스트)
+```{r}
+# 데이터 5000개 초과로 앤더슨달링 테스트 사용(샤피로 5000개)
+# 분산분석은 정규성 가정에 크게 제한 받지 않음
+library(nortest)
+ad.test(df$count)
+```
+
+
+```{r}
+#이상치 확인 (bonferroniP 0.05보다 작으면 이상치)
+car::outlierTest(season.aov)
+```
+
+## 등분산성 검정
+
+```{r}
+#등분산성 검정
+library(stats)
+bartlett.test(count~season, data=df)
+
+#oneway.test는 등분산을 충족하지 않을때
+oneway.test(count~season, data=df)
+```
+
+
+## 검정결과 season, weather 독립변수가 유의함
+## -1. holiday독립변수들 등분산성 검정
+```{r}
+
+bartlett.test(count~holiday, data=df)
+summary(aov(count~holiday, data=df))
+
+```
+
+## -2. workingday 독립변수 등분산성 검정
+```{r}
+bartlett.test(count~workingday, data=df)
+oneway.test(count~workingday, data=df)
+```
+
+
+## -3. weather 독립변수 등분산성 검정
+```{r}
+df[df$weather==4,]
+except4<- df[-5632, ]
+bartlett.test(count~weather, data=except4)
+oneway.test(count~weather, data=except4)
+```
+
+
+## 회귀분석
+
+```{r}
+plot(df$count, df$temp)
+cor(df$count, df$temp)
+
+min(df$temp)
+```
+
+```{r}
+plot(df$count, df$humidity)
+plot(df$count, df$registered)
+```
+
+## 시간데이터
+
+```{r}
+df$month.df<- month(df$datetime)
+df$hour.df<- hour(df$datetime)
+```
+
+## 회귀분석 검정
+
+```{r}
+df.lm <- lm(count~temp+ humidity+ windspeed+ month.df+hour.df, data=df)
+plot(df.lm)
+```
+
+## 후진제거법
+
+```{r}
+#df.lm <- lm(count~, data=df)
+df.lm <- lm(count~temp+ humidity+ windspeed+ month.df+hour.df, data=df)
+select.var<- step(df.lm, direction = 'backward')
+summary(select.var)
+```
