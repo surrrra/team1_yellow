@@ -56,7 +56,7 @@ knitr::opts_chunk$set(message = FALSE)
 예) 30대 연령 그룹이 존재하지 않는 데이터에서 20대 30명, 40대 30명이라고 해서 해당 데이터의 평균을 30대라고 할 수 없다. 
 
 ```{r}
-titanic <- read.csv('./data/titanic.csv', header = T, stringsAsFactors = T)
+titanic <- read.csv('titanic.csv', header = T, stringsAsFactors = T)
 str(titanic)
 ```
 
