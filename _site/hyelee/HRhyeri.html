@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>team1_yellow - Human Resource Analytics data</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">team1_yellow</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">team1_yellow</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../sua/sua.html">sua</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../hyelee/HRhyeri.html" aria-current="page">Human Resource Analytics data</a>
+  </li>  
+  <li class="dropdown-header">
+ jaeyeol/bike-analythis.qmd</li>
+  <li class="nav-item">
+    <a class="nav-link" href="../sangeon/project8.html">project8</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../jaehun/Welfare.html">Analysis of Welfare for the Disabled</a>
+  </li>  
+  <li class="dropdown-header">
+ rahee/Interview_the_Titanic</li>
+  <li class="nav-item">
+    <a class="nav-link" href="../namgwang/lung_cancer.html">lung_cancer</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">Introduce</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Human Resource Analytics data</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<ul>
+<li><p><strong>데이터 : kaggle datasets</strong></p>
+<p><strong>- <a href="https://www.kaggle.com/datasets/saurabh0/human-resources-employee-attrition" class="uri">https://www.kaggle.com/datasets/saurabh0/human-resources-employee-attrition</a>.</strong></p></li>
+<li><p><strong>주제 : Human Resource Analytics data를 통한 이직 결정 요소 파악 및 이직 예측하기.</strong></p></li>
+<li><p><strong>분석기법 : 독립표본 T검정, 카이스퀘어 검정, 로지스틱 회귀분석.</strong></p></li>
+<li><p><strong>종속변수 : left 퇴사여부 (Target 값)</strong></p></li>
+<li><p><strong>독립변수 : 수치형변수 7개, 범주형변수 2개</strong></p></li>
+</ul>
+<hr>
+<ol type="1">
+<li><strong>데이터 불러오기 및 확인</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VIM)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: colorspace</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: grid</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>VIM is ready to use.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Suggestions and bug-reports can be submitted at: https://github.com/statistikat/VIM/issues</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'VIM'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:datasets':
+
+    sleep</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(missForest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'missForest'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:VIM':
+
+    nrmse</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'mice'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:stats':
+
+    filter</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    cbind, rbind</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'Human_Resources_Employee_Attrition.csv'</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   14999 obs. of  10 variables:
+ $ satisfaction_level   : num  0.38 0.8 0.11 0.72 0.37 0.41 0.1 0.92 0.89 0.42 ...
+ $ last_evaluation      : num  0.53 0.86 0.88 0.87 0.52 0.5 0.77 0.85 1 0.53 ...
+ $ number_of_projects   : int  2 5 7 5 2 2 6 5 5 2 ...
+ $ average_monthly_hours: int  157 262 272 223 159 153 247 259 224 142 ...
+ $ years_at_company     : int  3 6 4 5 3 3 4 5 5 3 ...
+ $ work_accident        : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ left                 : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ promotion_last_5years: int  0 0 0 0 0 0 0 0 0 0 ...
+ $ department           : chr  "sales" "sales" "sales" "sales" ...
+ $ salary               : chr  "low" "medium" "medium" "low" ...</code></pre>
+</div>
+</div>
+<hr>
+<ol start="2" type="1">
+<li><strong>수치형 칼럼 카테고리형으로 변경 및 결측치 처리</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>left <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>left)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>department <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>department)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>salary <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>salary)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   14999 obs. of  10 variables:
+ $ satisfaction_level   : num  0.38 0.8 0.11 0.72 0.37 0.41 0.1 0.92 0.89 0.42 ...
+ $ last_evaluation      : num  0.53 0.86 0.88 0.87 0.52 0.5 0.77 0.85 1 0.53 ...
+ $ number_of_projects   : int  2 5 7 5 2 2 6 5 5 2 ...
+ $ average_monthly_hours: int  157 262 272 223 159 153 247 259 224 142 ...
+ $ years_at_company     : int  3 6 4 5 3 3 4 5 5 3 ...
+ $ work_accident        : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ left                 : Factor w/ 2 levels "0","1": 2 2 2 2 2 2 2 2 2 2 ...
+ $ promotion_last_5years: int  0 0 0 0 0 0 0 0 0 0 ...
+ $ department           : Factor w/ 10 levels "accounting","hr",..: 8 8 8 8 8 8 8 8 8 8 ...
+ $ salary               : Factor w/ 3 levels "high","low","medium": 2 3 3 2 2 2 2 2 2 2 ...</code></pre>
+</div>
+</div>
+<hr>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 퇴사자(1) 비율이 20% 이상이여서 분석 진행</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(df<span class="sc">$</span>left))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+        0         1 
+0.7619175 0.2380825 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(df<span class="sc">$</span>left), <span class="at">col=</span><span class="fu">c</span>(<span class="st">'skyblue 3'</span>,<span class="st">'orange'</span>), <span class="at">names =</span> <span class="fu">c</span>(<span class="st">'재직'</span>,<span class="st">'퇴사'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="HRhyeri_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ol start="3" type="1">
+<li><strong>부서에 따른 퇴직 연관성</strong>
+<ul>
+<li><p>범주형 독립변수별 퇴사률 도출</p></li>
+<li><p>퇴사율이 가장 높은 부서는 HR부서, 급여가 낮을수록 퇴사율도 높아짐</p></li>
+</ul></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>dep.ad <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(<span class="fu">table</span>(df<span class="sc">$</span>left, df<span class="sc">$</span>department), <span class="at">margin=</span><span class="dv">2</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>salary.ad <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(<span class="fu">table</span>(df<span class="sc">$</span>left, df<span class="sc">$</span>salary), <span class="at">margin =</span> <span class="dv">2</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(dep.ad<span class="sc">*</span><span class="dv">100</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">'skyblue 3'</span>,<span class="st">'tomato'</span>), <span class="at">cex.names =</span> <span class="fl">0.7</span>, <span class="at">main =</span> <span class="st">'&lt; 부서별 퇴직자 비중 &gt;'</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fu">c</span>(<span class="fl">0.7</span>, <span class="fl">1.9</span>, <span class="fl">3.1</span>, <span class="fl">4.3</span>, <span class="fl">5.5</span>, <span class="fl">6.7</span>, <span class="fl">7.9</span>, <span class="fl">9.1</span>, <span class="fl">10.3</span>, <span class="fl">11.5</span>), dep.ad[<span class="dv">1</span>,]<span class="sc">*</span><span class="dv">100</span><span class="fl">+4.2</span>, <span class="fu">paste</span>(<span class="fu">as.character</span>(<span class="fu">round</span>(dep.ad[<span class="dv">2</span>,], <span class="dv">2</span>)<span class="sc">*</span><span class="dv">100</span>),<span class="st">'%'</span>))</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(salary.ad<span class="sc">*</span><span class="dv">100</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">'skyblue 3'</span>,<span class="st">'tomato'</span>), <span class="at">main =</span> <span class="st">'&lt; 급여별 퇴직자 비중 &gt;'</span>)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fu">c</span>(<span class="fl">0.7</span>, <span class="fl">1.9</span>, <span class="fl">3.1</span>), salary.ad[<span class="dv">1</span>,]<span class="sc">*</span><span class="dv">100</span><span class="fl">+4.2</span>, <span class="fu">paste</span>(<span class="fu">as.character</span>(<span class="fu">round</span>(salary.ad[<span class="dv">2</span>,], <span class="dv">2</span>)<span class="sc">*</span><span class="dv">100</span>),<span class="st">'%'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="HRhyeri_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="960"></p>
+</div>
+</div>
+<hr>
+<ol start="4" type="1">
+<li><p><strong>독립표본 T검정</strong></p>
+<ul>
+<li>퇴직률이 가장 높은 부서(HR)와 낮은 부서(management)의 만족도가 실제로 통계적으로 차이가 있는지 분석.</li>
+</ul>
+<!-- -->
+<ul>
+<li>만족도, 최근평가, 월평균 근무시간 3개 수치형변수에 대해 모두 독립표본 T검정, 3개 변수 중 통계적으로 차이가 있는 변수 도출</li>
+</ul></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>HR <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(df<span class="sc">$</span>department<span class="sc">==</span><span class="st">'hr'</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>management <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(df<span class="sc">$</span>department<span class="sc">==</span><span class="st">'management'</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(HR<span class="sc">$</span>satisfaction_level, management<span class="sc">$</span>satisfaction_level, <span class="at">ann=</span>F, <span class="at">names=</span><span class="fu">c</span>(<span class="st">'HR'</span>,<span class="st">'management'</span>), <span class="at">col=</span><span class="fu">c</span>(<span class="st">'salmon'</span>,<span class="st">'sky blue'</span>))</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(HR<span class="sc">$</span>last_evaluation, management<span class="sc">$</span>last_evaluation, <span class="at">ann=</span>F, <span class="at">names=</span><span class="fu">c</span>(<span class="st">'HR'</span>,<span class="st">'management'</span>), <span class="at">col=</span><span class="fu">c</span>(<span class="st">'salmon'</span>,<span class="st">'sky blue'</span>))</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(HR<span class="sc">$</span>average_monthly_hours, management<span class="sc">$</span>average_monthly_hours, <span class="at">ann=</span>F, <span class="at">names=</span><span class="fu">c</span>(<span class="st">'HR'</span>,<span class="st">'management'</span>), <span class="at">col=</span><span class="fu">c</span>(<span class="st">'salmon'</span>,<span class="st">'sky blue'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="HRhyeri_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<hr>
+<ul>
+<li>t.test 결과 세가지 모두 p-value가 유의수준 0.05보다 높게 나와 귀무가설을 기각할 수 없다.</li>
+</ul>
+<!-- -->
+<ul>
+<li>퇴사율이 가장 높은 HR 부서와 퇴사율이 가장 낮은 management 부서 사이에 만족도, 평가, 월평균근무시간의 차이가 없다고 할 수 있다.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lawstat)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(HR<span class="sc">$</span>satisfaction_level, management<span class="sc">$</span>satisfaction_level, <span class="at">var.equal=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Two Sample t-test
+
+data:  HR$satisfaction_level and management$satisfaction_level
+t = -1.7402, df = 1367, p-value = 0.08204
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.047948286  0.002868276
+sample estimates:
+mean of x mean of y 
+0.5988092 0.6213492 </code></pre>
+</div>
+</div>
+<hr>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(HR<span class="sc">$</span>last_evaluation, management<span class="sc">$</span>last_evaluation, <span class="at">var.equal=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Two Sample t-test
+
+data:  HR$last_evaluation and management$last_evaluation
+t = -1.6616, df = 1367, p-value = 0.09682
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.033036822  0.002736416
+sample estimates:
+mean of x mean of y 
+0.7088498 0.7240000 </code></pre>
+</div>
+</div>
+<hr>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(HR<span class="sc">$</span>average_monthly_hours, management<span class="sc">$</span>average_monthly_hours, <span class="at">var.equal=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Two Sample t-test
+
+data:  HR$average_monthly_hours and management$average_monthly_hours
+t = -0.96484, df = 1367, p-value = 0.3348
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -7.778588  2.649594
+sample estimates:
+mean of x mean of y 
+ 198.6847  201.2492 </code></pre>
+</div>
+</div>
+<hr>
+<ul>
+<li>부서별 세 변수의 평균을 보아도 큰 차이를 보이지 않는다</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">with</span>(df, <span class="fu">cbind</span>(satisfaction_level, last_evaluation, average_monthly_hours))</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(df, <span class="fu">aggregate</span>(y, <span class="at">by=</span><span class="fu">list</span>(department), <span class="at">FUN =</span> mean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Group.1 satisfaction_level last_evaluation average_monthly_hours
+1   accounting          0.5821512       0.7177184              201.1630
+2           hr          0.5988092       0.7088498              198.6847
+3           IT          0.6181418       0.7168297              202.2160
+4   management          0.6213492       0.7240000              201.2492
+5    marketing          0.6186014       0.7158858              199.3858
+6  product_mng          0.6196341       0.7147561              199.9656
+7        RandD          0.6198221       0.7121220              200.8005
+8        sales          0.6144469       0.7097174              200.9114
+9      support          0.6182997       0.7231090              200.7582
+10   technical          0.6078971       0.7210993              202.4974</code></pre>
+</div>
+</div>
+<hr>
+<ol start="5" type="1">
+<li><strong>카이스퀘어 검정</strong>
+<ul>
+<li><p>카이스퀘어 검정을 통해 연봉(salary)과 퇴직(left)와의 연관성, 검정통계량(소수자리는 모두 버리고 정수만 기록)</p></li>
+<li><p>p-value가 유의수준 0.05보다 작으므로 부서별 연봉의 차이가 없다는 귀무가설 기각, 따라서 부서별 연봉의 차이가 있다고 할 수 있다.</p></li>
+</ul></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(df, <span class="fu">chisq.test</span>(department, salary))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  department and salary
+X-squared = 700.92, df = 18, p-value &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<hr>
+<ol start="6" type="1">
+<li><strong>로지스틱분석</strong>
+<ul>
+<li><p>로지스틱분석을 통한 퇴사예측모델 생성 및 예측</p></li>
+<li><p>p-value 값이 유의 수준 0.05보다 현저히 작으므로 회귀계수가 의미가 없다는 귀무가설을 기각한다. 따라서 회귀계수가 의미가 있다고 할 수 있다.</p></li>
+<li><p>부서중에는 R&amp;D 부서가 퇴사와 관련이 있다고 할 수 있다.</p></li>
+<li><p>만족도, 산재여부,급여 순으로 퇴사에 많은 영향을 주는 변수로 나타났다.</p></li>
+</ul></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>left.logit <span class="ot">&lt;-</span> <span class="fu">glm</span>(left <span class="sc">~</span>., <span class="at">data=</span>df, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">'logit'</span>))</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(left.logit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = left ~ ., family = binomial(link = "logit"), data = df)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.2248  -0.6645  -0.4026  -0.1177   3.0688  
+
+Coefficients:
+                        Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)           -1.4762862  0.1938373  -7.616 2.61e-14 ***
+satisfaction_level    -4.1356889  0.0980538 -42.178  &lt; 2e-16 ***
+last_evaluation        0.7309032  0.1491787   4.900 9.61e-07 ***
+number_of_projects    -0.3150787  0.0213248 -14.775  &lt; 2e-16 ***
+average_monthly_hours  0.0044603  0.0005161   8.643  &lt; 2e-16 ***
+years_at_company       0.2677537  0.0155736  17.193  &lt; 2e-16 ***
+work_accident         -1.5298283  0.0895473 -17.084  &lt; 2e-16 ***
+promotion_last_5years -1.4301364  0.2574958  -5.554 2.79e-08 ***
+departmenthr           0.2323779  0.1313084   1.770  0.07678 .  
+departmentIT          -0.1807179  0.1221276  -1.480  0.13894    
+departmentmanagement  -0.4484236  0.1598254  -2.806  0.00502 ** 
+departmentmarketing   -0.0120882  0.1319304  -0.092  0.92700    
+departmentproduct_mng -0.1532529  0.1301538  -1.177  0.23901    
+departmentRandD       -0.5823659  0.1448848  -4.020 5.83e-05 ***
+departmentsales       -0.0387859  0.1024006  -0.379  0.70486    
+departmentsupport      0.0500251  0.1092834   0.458  0.64713    
+departmenttechnical    0.0701464  0.1065379   0.658  0.51027    
+salarylow              1.9440627  0.1286272  15.114  &lt; 2e-16 ***
+salarymedium           1.4132244  0.1293534  10.925  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 16465  on 14998  degrees of freedom
+Residual deviance: 12850  on 14980  degrees of freedom
+AIC: 12888
+
+Number of Fisher Scoring iterations: 5</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(left.logit<span class="sc">$</span>fitted.values <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="st">'yes'</span>, <span class="st">'no'</span>))</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table</span>(df<span class="sc">$</span>left, df<span class="sc">$</span>pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<table class="table">
+<caption>혼돈행렬</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">No</th>
+<th style="text-align: center;">Yes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">재직</td>
+<td style="text-align: center;">10614</td>
+<td style="text-align: center;">814</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">퇴사</td>
+<td style="text-align: center;">2301</td>
+<td style="text-align: center;">1270</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class="cell">
+<pre class="tab cell-code"><code></code></pre>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>TN <span class="ot">&lt;-</span> tab[<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>TP <span class="ot">&lt;-</span> tab[<span class="dv">2</span>,<span class="dv">2</span>]</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>FP <span class="ot">&lt;-</span> tab[<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>FN <span class="ot">&lt;-</span> tab[<span class="dv">2</span>,<span class="dv">1</span>]</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>auc <span class="ot">&lt;-</span> (TN<span class="sc">+</span>TP) <span class="sc">/</span> (TN<span class="sc">+</span>TP<span class="sc">+</span>FN<span class="sc">+</span>FP)</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>pre<span class="ot">&lt;-</span> TP <span class="sc">/</span> (TP<span class="sc">+</span>FP)</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>rec<span class="ot">&lt;-</span> TP <span class="sc">/</span> (TP<span class="sc">+</span>FN)</span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>f1<span class="ot">&lt;-</span> (<span class="dv">2</span><span class="sc">*</span>pre<span class="sc">*</span>rec)<span class="sc">/</span> (pre<span class="sc">+</span>rec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">정확도</th>
+<th style="text-align: center;">정밀도</th>
+<th style="text-align: center;">재현율</th>
+<th style="text-align: center;">f1-score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">79.23195</td>
+<td style="text-align: center;">60.9405</td>
+<td style="text-align: center;">35.56427</td>
+<td style="text-align: center;">44.916</td>
+</tr>
+</tbody>
+</table>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

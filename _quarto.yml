@@ -5,13 +5,19 @@ website:
   title: "team1_yellow"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
+      - index.qmd
+      - sua/sua.qmd
+      - hyelee/HRhyeri.qmd
+      - jaeyeol/bike-analythis.qmd
+      - sangeon/project8.qmd
+      - jaehun/Welfare.qmd
+      - rahee/titanic_with_r.qmd
+      - namgwang/lung_cancer.qmd
       - about.qmd
 
 format:
   html:
-    theme: journal
+    theme: cosmos
     css: styles.css
     toc: true
 
